@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 16:54:27 by uakkan            #+#    #+#             */
-/*   Updated: 2023/03/05 22:09:06 by uakkan           ###   ########.fr       */
+/*   Created: 2023/03/05 22:18:27 by uakkan            #+#    #+#             */
+/*   Updated: 2023/03/05 22:19:14 by uakkan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct s_lst
+int	ft_atoi(const char *str)
 {
-    int             data;
-    struct s_lst    *next;
-    struct s_lst    *prev;
-}               t_lst;
+	int		u;
+	long	m;
+	int		t;
 
-typedef struct		s_stack
-{
-	t_pslst			*head;
-	t_pslst			*end;
-	t_pslst			**p;
-	int				top;
-	int				ac;
-}					t_stack;
-#include <stdlib.h>
-#include "../ft_printf/ft_printf.h"
-#include "../libft/libft.h"
-
-#endif
+	u = 0;
+	m = 0;
+	t = 1;
+	while ((str[u] == 32) || (str[u] >= 9 && str[u] <= 13))
+		u++;
+	if (str[u] == '-' || str[u] == '+')
+	{
+		if (str[u] == '-')
+			t *= -1;
+		u++;
+	}
+	while (str[u] >= '0' && str[u] <= '9')
+	{
+		m = (str[u] - '0') + (m * 10);
+		u++;
+	}
+	return (t * m);
+}

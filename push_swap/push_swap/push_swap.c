@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uakkan <uakkan@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 16:54:27 by uakkan            #+#    #+#             */
-/*   Updated: 2023/03/05 22:09:06 by uakkan           ###   ########.fr       */
+/*   Created: 2023/03/05 20:49:06 by uakkan            #+#    #+#             */
+/*   Updated: 2023/03/05 22:05:55 by uakkan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "push_swap.h"
 
-typedef struct s_lst
+int main(int argc, char **argv)
 {
-    int             data;
-    struct s_lst    *next;
-    struct s_lst    *prev;
-}               t_lst;
+	int		i;
+	char	**str;
+	t_stack	a;
+	t_stack	b;
+	i = 0;
+	if (argc > 1)
+	{
+		str = ft_split(argv, ' ');
+		build_stack(&a, &b, argc, str);
 
-typedef struct		s_stack
-{
-	t_pslst			*head;
-	t_pslst			*end;
-	t_pslst			**p;
-	int				top;
-	int				ac;
-}					t_stack;
-#include <stdlib.h>
-#include "../ft_printf/ft_printf.h"
-#include "../libft/libft.h"
-
-#endif
+	}
+	return (0);
+}
